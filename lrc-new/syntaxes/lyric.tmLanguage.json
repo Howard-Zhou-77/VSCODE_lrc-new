@@ -1,0 +1,67 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "lyric",
+	"patterns": [
+		{
+			"begin": "^(\\[)([0-5]\\d)(:)(\\d\\d)(\\.)(\\d{1,4})(\\])",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.lyric"
+				},
+				"2": {
+					"name": "entity.name.type.lyric"
+				},
+				"3": {
+					"name": "keyword.operator.lyric"
+				},
+				"4": {
+					"name": "entity.name.tag.lyric"
+				},
+				"5": {
+					"name": "keyword.operator.lyric"
+				},
+				"6": {
+					"name": "constant.numeric.lyric"
+				},
+				"7": {
+					"name": "keyword.control.lyric"
+				}
+			},
+			"end": "(.*)[\\n\\r]+",
+			"endCaptures": {
+				"1": {
+					"name": "string.literal.lyric"
+				}
+			}
+		},
+		{
+			"match": "^(\\[)(\\w*)(:)(.*)(\\])",
+			"captures": {
+				"1": {
+					"name": "keyword.control.lyric"
+				},
+				"2": {
+					"name": "entity.name.function.lyric"
+				},
+				"3": {
+					"name": "keyword.operator.lyric"
+				},
+				"4": {
+					"name": "comment.line.lyric"
+				},
+				"5": {
+					"name": "keyword.control.lyric"
+				}
+			}
+		},
+		{
+			"match": "(.*)",
+			"captures": {
+				"1": {
+					"name": "invalid.illegal.lyric"
+				}
+			}
+		}
+	],
+	"scopeName": "source.lrc"
+}

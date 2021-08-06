@@ -1,0 +1,61 @@
+{
+    "name": "lrc-new",
+    "displayName": "lrc-new",
+    "description": "A extention to support .lrc file and to make a .lrc with playing song file related.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.58.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lyric",
+            "aliases": ["lyric", "lyric"],
+            "extensions": [".lrc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lyric",
+            "scopeName": "source.lrc",
+            "path": "./syntaxes/lyric.tmLanguage.json"
+        }],
+        "commands": [{
+            "command": "lrc-new.newTimeTag",
+            "title": "Set a new time tag"
+        },{
+            "command": "lrc-new.timeTagDelete",
+            "title": "Delete a time tag"
+        }],
+        "configuration": [
+            {
+                "title": "Lyric",
+                "properties": {
+                    "lyric.customPath": {
+                        "type": "string",
+                        "default": "null",
+                        "description": "type your own lrc path"
+                    }
+                }
+            }
+        ],
+        "keybindings":[
+            {
+                "command": "lrc-new.newTimeTag",
+                "key": "f3",
+                "mac": "f3",
+                "when": "editorTextFocus"
+            },{
+                "command": "lrc-new.timeTagDelete",
+                "key": "f5",
+                "mac": "f5",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "activationEvents": [
+        "onLanguage:lyric"
+    ],
+    "main": "./extension.js"
+}
